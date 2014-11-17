@@ -20,7 +20,7 @@ use Phalcon\Translate\Adapter\NativeArray;
 			$this->loadMainTrans();
 	    }
         
-        private function prepareTitle()
+        private function prepareTitle($pageTitleExtensions)
         {
             $this->pageTitle[1] = APP_NAMESPACE." | ".$pageTitleExtensions;
             $this->tag->setTitle($pageTitle);

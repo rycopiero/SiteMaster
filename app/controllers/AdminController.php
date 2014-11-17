@@ -24,8 +24,6 @@ use SiteMaster\Models\Countries,
 	    
 	    public function countryAction()
 	    {
-            $this->pageTitleExtensions
-            
 			$this->view->pick("admin/reference/country");
 			
 			if ( $this->dispatcher->getParam('Id') )
@@ -74,6 +72,9 @@ use SiteMaster\Models\Countries,
             	)
 	    	);
 	    	$this->view->countries = $countries;
+            
+            $this->pageTitleExtensions .= $this->view->country->Id ? " - Country" : " - ".$this->view->country->Name;
+            $this->prepareTitle();
 			
 			$this->createJsExtBuilder();
 	    }
