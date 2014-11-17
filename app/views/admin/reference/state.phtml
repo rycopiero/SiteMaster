@@ -1,0 +1,58 @@
+<?php 
+	echo $this->getContent(); 
+?>
+
+<h2>States</h2>
+
+<?php
+	foreach($states as $singleState){
+		echo "<div>";
+		echo $singleState->Id." ".$singleState->Code." ".$singleState->Name;
+		echo " ".$this->tag->linkTo(array('admin/reference/state/'.$singleState->Id, 'Edit', 'class' => ''));
+		echo " ".$this->tag->linkTo(array('admin/reference/state/'.$singleState->Id, 'Delete', 'class' => ''));
+		echo "</div>";
+	}
+?>
+
+<h2>Create State</h2>
+
+<?php echo $this->tag->formFor("admin/reference/state"); ?>
+	<div class="form-group">
+		<label for="Country" class="col-sm-2 control-label">Country</label>
+		<div class="col-sm-2">
+			<?php 
+				echo $this->tag->selectFor(
+					array(
+						"Country",
+						$countries,
+						"using" => array('Id', 'CodeName'),
+						"useEmpty" => true,
+						"emptyText" => 'Please choose...',
+						"emptyValue" => '0',
+						"class" => "test",
+					)
+				) 
+			?>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="Code" class="col-sm-2 control-label">Code</label>
+		<div class="col-sm-2">
+			<?php echo $this->tag->textFieldFor(array("Code", "value"=>$state->Code)) ?>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="Name" class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-5">
+			<?php echo $this->tag->textFieldFor(array("Name", "value"=>$state->Name)) ?>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<?= $this->tag->submitButton(array("Submit", 'class' => 'btn btn-default')); ?>
+	    </div>
+	</div>
+</form>

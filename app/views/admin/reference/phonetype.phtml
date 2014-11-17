@@ -1,0 +1,21 @@
+<?php 
+	echo $this->getContent(); 
+?>
+
+<h2>Create Phone Type</h2>
+
+<?php echo $this->tag->formFor("admin/reference/phonetype"); ?>
+	<div class="form-group">
+		<label for="Name" class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-5">
+			<?php echo $this->tag->textFieldFor(array("Name", "value"=>"")) ?>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<?= $this->tag->submitButton(array("Submit", 'class' => 'btn btn-default')); ?>
+	    </div>
+	</div>
+
+</form>

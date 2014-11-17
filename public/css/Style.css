@@ -1,0 +1,28 @@
+
+.alert-list{
+	padding-left: 20px;
+}
+
+.footer{
+	font-size:11px;
+}
+
+.border-top-b{
+	border-top:1px solid #bbb; 
+}
+
+.border-bottom-c{
+	border-bottom:1px solid #ccc;
+}
+
+.border-right-d{
+	border-right:1px solid #ddd;
+}
+
+.ft-pad{
+	padding:15px 10px;
+}
+.ft-copyright{
+	font-size: 10px;
+	color: #999;
+}

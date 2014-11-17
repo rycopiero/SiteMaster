@@ -1,0 +1,28 @@
+<?php 
+	echo $this->getContent(); 
+?>
+
+<h2>Create Social Type</h2>
+
+<?php echo $this->tag->formFor(array("admin/reference/socialtype", "enctype"=>"multipart/form-data")); ?>
+	<div class="form-group">
+		<label for="Name" class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-5">
+			<?php echo $this->tag->textFieldFor(array("Name", "value"=>"")) ?>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="Icon" class="col-sm-2 control-label">Icon</label>
+		<div class="col-sm-2">
+			<?php echo $this->tag->fileField("Icon") ?>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<?= $this->tag->submitButton(array("Submit", 'class' => 'btn btn-default')); ?>
+	    </div>
+	</div>
+
+</form>

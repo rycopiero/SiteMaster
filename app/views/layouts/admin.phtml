@@ -1,0 +1,13 @@
+<?php use Phalcon\Tag as Tag ?>
+
+<div>link to Country : <?php echo Tag::linkTo(array('admin/reference/country', 'Create New Country', 'class' => '')); ?></div>
+<div>link to State : <?php echo Tag::linkTo(array('admin/reference/state', 'Create New State', 'class' => '')); ?></div>
+<div>link to City : <?php echo Tag::linkTo(array('admin/reference/city', 'Create New City', 'class' => '')); ?></div>
+<div>link to Email Type : <?php echo Tag::linkTo(array('admin/reference/emailtype', 'Create New Email Type', 'class' => '')); ?></div>
+<div>link to Phone Type : <?php echo Tag::linkTo(array('admin/reference/phonetype', 'Create New Phone Type', 'class' => '')); ?></div>
+<div>link to Address Type : <?php echo Tag::linkTo(array('admin/reference/addresstype', 'Create New Address Type', 'class' => '')); ?></div>
+<div>link to Social Type : <?php echo Tag::linkTo(array('admin/reference/socialtype', 'Create New Social Type', 'class' => '')); ?></div>
+
+<?php 
+    echo $this->getContent(); 
+?>

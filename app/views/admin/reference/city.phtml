@@ -1,0 +1,85 @@
+<?php 
+	echo $this->getContent(); 
+?>
+
+<h2>Cities</h2>
+
+<?php
+	foreach($cities as $singleCity){
+		echo "<div>";
+		echo $singleCity->Id." ".$singleCity->Code." ".$singleCity->Name;
+		echo " ".$this->tag->linkTo(array('admin/reference/city/'.$singleCity->Id, 'Edit', 'class' => ''));
+		echo " ".$this->tag->linkTo(array('admin/reference/city/'.$singleCity->Id, 'Delete', 'class' => ''));
+		echo "</div>";
+	}
+?>
+
+<h2>Create City</h2>
+
+<?php echo $this->tag->formFor("admin/reference/city"); ?>
+	<div class="form-group">
+		<label for="Country" class="col-sm-2 control-label">Country</label>
+		<div class="col-sm-2">
+			<?php 
+				echo $this->tag->selectFor(
+					array(
+						"Country",
+						$countries,
+						"using" => array('Id', 'CodeName'),
+						"useEmpty" => true,
+						"emptyText" => 'Please choose...',
+						"emptyValue" => '0',
+					)
+				) 
+			?>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="State" class="col-sm-2 control-label">State</label>
+		<div class="col-sm-2">
+			<?php
+				if ( isset($states) ) {
+					echo $this->tag->selectFor(
+						array(
+							"State",
+							$states,
+							"using" => array('Id', 'CodeName'),
+							"useEmpty" => true,
+							"emptyText" => 'Please choose...',
+							"emptyValue" => '0',
+						)
+					);
+				}
+				else {
+			?>
+					<select id="State" name="State" class="form-control">
+					    <option value="0">Please choose...</option>
+					</select>
+			<?php
+				} 
+			?>
+			
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="Code" class="col-sm-2 control-label">Code</label>
+		<div class="col-sm-2">
+			<?php echo $this->tag->textFieldFor(array("Code", "value"=>$city->Code)) ?>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="Name" class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-5">
+			<?php echo $this->tag->textFieldFor(array("Name", "value"=>$city->Name)) ?>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<?= $this->tag->submitButton(array("Submit", 'class' => 'btn btn-default')); ?>
+	    </div>
+	</div>
+</form>
