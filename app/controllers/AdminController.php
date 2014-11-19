@@ -47,7 +47,7 @@ use SiteMaster\Models\Countries,
 	    		
 	    		$country->Code = Text::upper($this->request->getPost('Code', 'trim'));
 				$country->Name = $this->request->getPost('Name');
-				$country->RecordStatus = "AC";
+				$country->RecordStatus = "";
 				$country->CreatedBy = "0_Admin_BROWSER";
 
 		        if ( !($country->save()) ) 

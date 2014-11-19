@@ -10,7 +10,8 @@ use Phalcon\Translate\Adapter\NativeArray;
 		protected $jsExtForm;
         
         protected $pageTitle;
-		
+		protected $pageTitleExtensions;
+        
 		protected function initialize() 
 	    {
             $this->prepareTitle();
@@ -20,10 +21,10 @@ use Phalcon\Translate\Adapter\NativeArray;
 			$this->loadMainTrans();
 	    }
         
-        private function prepareTitle($pageTitleExtensions)
+        private function prepareTitle()
         {
-            $this->pageTitle[1] = APP_NAMESPACE." | ".$pageTitleExtensions;
-            $this->tag->setTitle($pageTitle);
+            $this->pageTitle = APP_NAMESPACE." | ".$this->pageTitleExtensions;
+            $this->tag->setTitle($this->pageTitle);
         }
 	    
 	    public function loadAssets()
